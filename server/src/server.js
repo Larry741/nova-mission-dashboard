@@ -1,6 +1,5 @@
 const fs = require('fs');
 const https = require('https');
-const nodeMailer = require('nodemailer');
 
 require('dotenv').config();
 
@@ -10,21 +9,6 @@ const { loadLaunchesData } = require('./model/launches.model');
 const {connectMongoDb} = require('./services/mongo');
 
 const PORT = process.env.PORT;
-
-// const transporter = nodeMailer.createTransport({
-//   service: "gmail",
-//   auth: {
-//     user: "kosimbanefo3@gmail.com",
-//     pass: "Korruption42",
-//   },
-// });
-
-const mailOptions = {
-  from: "kosimbanefo3@gmail.com",
-  to: "kosimbanefo@gmail.com",
-  subject: "Server online",
-  text: "server is online hurray!",
-};
 
 const server = https.createServer({
   key: fs.readFileSync("key.pem"),
@@ -37,13 +21,7 @@ const startServer = async () => {
   await loadLaunchesData();
 
   server.listen(PORT, () => {
-    transporter.sendMail(mailOptions, function (error, info) {
-      if (error) {
-        console.log(error);
-      } else {
-        console.log("Email sent: " + info.response);
-      }
-    });
+    console.log("server running")
   });
 }
 

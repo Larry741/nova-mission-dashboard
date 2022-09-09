@@ -7,7 +7,11 @@ mongoose.connection.on("open", () => {
 });
 
 const connectMongoDb = async () => {
-  await mongoose.connect(MONGO_URL);
+  try{
+    await mongoose.connect(MONGO_URL);
+  } catch (err) {
+    console.log(err.message)
+  }
 }
 
 const disconnectMongoDb = async () => {

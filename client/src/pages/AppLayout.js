@@ -68,10 +68,10 @@ const AppLayout = props => {
         corners={4} 
         style={{visibility: frameVisible ? "visible" : "hidden"}}>
         {anim => (
-          <div style={{padding: "20px"}}>
+          <div style={{padding: "20px", overflowX: "scroll"}}>
           <Switch>
             <Route exact path="/">
-              <Launch 
+              <Launch   
                 entered={anim.entered}
                 planets={planets}
                 submitLaunch={submitLaunch}

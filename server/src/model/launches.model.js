@@ -72,6 +72,8 @@ async function loadLaunchesData() {
         return payload["customers"];
       });
 
+      console.log(data.upcoming);
+
       const launchDoc = {
         // target: data,
         mission: data.name,
@@ -125,8 +127,6 @@ async function getAllLaunches(skip, limit) {
     .sort({
       flightNumber: 1
     })
-    .skip(skip)
-    .limit(limit);
 }
 
 async function abortLaunch(launchId) {

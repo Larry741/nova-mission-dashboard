@@ -14,14 +14,27 @@ const styles = (theme) => ({
   root: {
     display: "flex",
     flexDirection: "row",
-    lineHeight: "80px",
+    height: "80px",
+    alignItems: "center",
   },
   logo: {
-    display: "inherit",
-    marginTop: "15px",
+    display: "flex",
+    alignItems: "center",
+    justifyContent: "center",
   },
   nav: {
     display: "inherit",
+
+    "@media (max-width: 800px)": {
+      width: "100%",
+      display: "flex",
+      justifyContent: "center",
+    },
+    "@media (max-width: 353px)": {
+      width: "90vw",
+      margin: "0 auto",
+      justifyContent: "space-around",
+    },
   },
   banner: {
     display: "inherit",
@@ -40,13 +53,20 @@ const styles = (theme) => ({
   link: {
     color: theme.color.content,
     textDecoration: "none",
+    display: "flex",
+    alignItems: "center",
+
+    "@media (max-width: 353px)": {
+      flexDirection: "column",
+      justifyContent: "center",
+    },
   },
   button: {
     padding: [0, theme.padding / 2],
   },
   "@media (max-width: 800px)": {
     logo: {
-      display: "none",
+      // display: "none",
     },
     img: {
       display: "none",
@@ -80,7 +100,7 @@ const Header = (props) => {
         />
         <Logo animate size={50} className={classes.logo} layer="header" />
         <Words animate className={classes.banner}>
-          NASA Mission Control
+          NOVA Mission Control
         </Words>
         <nav className={`${classes.nav}`}>
           <Clickable className={classes.clickable} onClick={onNav}>

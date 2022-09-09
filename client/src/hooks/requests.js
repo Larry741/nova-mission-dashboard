@@ -18,7 +18,6 @@ async function httpGetLaunches() {
     }
     const fetchedResponse = await response.json();
   
-    console.log(fetchedResponse);
     return fetchedResponse.sort((a, b) => {
       return a.flightNumber - b.flightNumber;
     });

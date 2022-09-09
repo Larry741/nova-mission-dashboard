@@ -9,6 +9,16 @@ const styles = () => ({
     color: "red",
     textDecoration: "none",
   },
+  fontSize: {
+    fontSize: "21px",
+
+    "@media (max-width: 800px)": {
+      fontSize: "19px",
+    },
+    "@media (max-width: 480px)": {
+      fontSize: "18px",
+    },
+  },
 });
 
 const Upcoming = (props) => {
@@ -37,7 +47,7 @@ const Upcoming = (props) => {
             <td>{launch.flightNumber}</td>
             <td>{new Date(launch.launchDate).toDateString()}</td>
             <td>{launch.mission}</td>
-            <td>{launch.rocket}</td>
+            <td>{launch.rocketName}</td>
             <td>{launch.target}</td>
           </tr>
         );
@@ -46,21 +56,23 @@ const Upcoming = (props) => {
 
   return (
     <Appear id="upcoming" animate show={entered}>
-      <Paragraph>
+      <Paragraph className={classes.fontSize}>
         Upcoming missions including both SpaceX launches and newly scheduled
         Zero to Mastery rockets.
       </Paragraph>
-      <Words animate>Warning! Clicking on the ✖ aborts the mission.</Words>
+      <Words className={classes.fontSize} animate>
+        Warning! Clicking on the ✖ aborts the mission.
+      </Words>
       <Table animate show={entered}>
-        <table style={{ tableLayout: "fixed" }}>
+        <table style={{ tableLayout: "fixed", width: "100%" }}>
           <thead>
             <tr>
               <th style={{ width: "3rem" }}></th>
               <th style={{ width: "3rem" }}>No.</th>
               <th style={{ width: "10rem" }}>Date</th>
-              <th style={{ width: "11rem" }}>Mission</th>
-              <th style={{ width: "11rem" }}>Rocket</th>
-              <th>Destination</th>
+              <th style={{ width: "10rem" }}>Mission</th>
+              <th style={{ width: "10rem" }}>Rocket</th>
+              <th style={{ width: "10rem" }}>Destination</th>
             </tr>
           </thead>
           <tbody>{tableBody}</tbody>
