@@ -21,6 +21,7 @@ const styles = (theme) => ({
     display: "flex",
     alignItems: "center",
     justifyContent: "center",
+    flexShrink: 0,
   },
   nav: {
     display: "inherit",
@@ -28,12 +29,16 @@ const styles = (theme) => ({
     "@media (max-width: 800px)": {
       width: "100%",
       display: "flex",
-      justifyContent: "center",
+      padding: "0 0 0 10px",
+      gap: "10px",
     },
     "@media (max-width: 353px)": {
-      width: "90vw",
-      margin: "0 auto",
-      justifyContent: "space-around",
+      padding: "0 0 0 5px",
+      gap: "5px",
+    },
+    "@media (max-width: 305px)": {
+      padding: "0 0 0 0px",
+      gap: "0px",
     },
   },
   banner: {
@@ -45,9 +50,15 @@ const styles = (theme) => ({
   },
   clickable: {
     fontSize: 21,
+
     "& i": {
       marginRight: theme.padding / 2,
       fontSize: 24,
+
+      "@media (max-width: 353px)": {
+        marginRight: "3px",
+        fontSize: 22,
+      },
     },
   },
   link: {
@@ -56,7 +67,7 @@ const styles = (theme) => ({
     display: "flex",
     alignItems: "center",
 
-    "@media (max-width: 353px)": {
+    "@media (max-width: 430px)": {
       flexDirection: "column",
       justifyContent: "center",
     },
