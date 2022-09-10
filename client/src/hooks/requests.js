@@ -1,4 +1,4 @@
-const Url = '/v1';
+const Url = 'v1';
 
 async function httpGetPlanets() {
   console.log(Url);
