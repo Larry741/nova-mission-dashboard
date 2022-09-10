@@ -9,9 +9,11 @@ const v1 = require('./routes/v1')
 const app = express();
 
 app.use(helmet());
-app.use(cors({
-  origin: 'https://localhost:8000',
-}))
+app.use(
+  cors({
+    origin: process.env.APP_URL,
+  })
+);
 app.use(morgan('combined'));
 
 app.use(express.json());
