@@ -30,7 +30,7 @@ const Upcoming = (props) => {
     }
 
     return launches
-      .filter((launch) => launch.upcoming)
+      ?.filter((launch) => launch.upcoming)
       .map((launch) => {
         return (
           <tr key={String(launch.flightNumber)}>

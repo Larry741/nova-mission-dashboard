@@ -39,7 +39,7 @@ const Launch = (props) => {
       return <></>
     }
 
-    return props.planets.map((planet) => (
+    return props.planets?.map((planet) => (
       <option value={planet.kepler_name} key={planet.kepler_name}>
         {planet.kepler_name}
       </option>

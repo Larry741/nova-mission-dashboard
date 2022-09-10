@@ -10,9 +10,7 @@ async function httpGetPlanets() {
     return await response.json();
   } catch (err) {
     console.log(err.message);
-    return {
-      ok: false,
-    };
+    return [];
   }
 }
 
@@ -21,7 +19,7 @@ async function httpGetLaunches() {
     const response = await fetch(`${Url}/launches`);
   
     if (!response.ok) {
-      throw new Error("couldn't load planets");
+      throw new Error("couldn't load launches");
     }
     const fetchedResponse = await response.json();
   
@@ -30,9 +28,7 @@ async function httpGetLaunches() {
     });
   } catch (err) {
     console.log(err.message);
-    return {
-      ok:false
-    }
+    return []
   }
 }
 
