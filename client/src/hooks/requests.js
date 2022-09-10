@@ -9,7 +9,7 @@ async function httpGetPlanets() {
     }
     return await response.json();
   } catch (err) {
-    console.log(err.message);
+    console.log(err);
     return [];
   }
 }
@@ -27,7 +27,7 @@ async function httpGetLaunches() {
       return a.flightNumber - b.flightNumber;
     });
   } catch (err) {
-    console.log(err.message);
+    console.log(err);
     return []
   }
 }
