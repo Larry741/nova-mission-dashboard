@@ -8,7 +8,7 @@ const v1 = require('./routes/v1')
 
 const app = express(); 
 
-const APP_URL = process.env.NODE_ENV === "production" ? process.env.VERCEL_UR : process.env.APP_URL
+const APP_URL = process.env.NODE_ENV === "production" ? process.env.VERCEL_URL : process.env.APP_URL
 
 app.use(helmet());
 app.use(
