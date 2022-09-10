@@ -1,18 +1,23 @@
 const Url = 'v1';
 
 async function httpGetPlanets() {
-  console.log(Url);
-  const response =  await fetch(`${Url}/planets`);
-
-  if (!response.ok) {
-    throw new Error("couldn't load planets");
+  try {
+    const response =  await fetch(`${Url}/planets`);
+  
+    if (!response.ok) {
+      throw new Error("couldn't load planets");
+    }
+    return await response.json();
+  } catch (err) {
+    console.log(err.message);
+    return {
+      ok: false,
+    };
   }
-  return await response.json();
 }
 
 async function httpGetLaunches() {
   try {
-    console.log(Url)
     const response = await fetch(`${Url}/launches`);
   
     if (!response.ok) {
@@ -24,6 +29,7 @@ async function httpGetLaunches() {
       return a.flightNumber - b.flightNumber;
     });
   } catch (err) {
+    console.log(err.message);
     return {
       ok:false
     }
