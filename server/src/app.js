@@ -13,7 +13,7 @@ const APP_URL = process.env.NODE_ENV === "production" ? process.env.VERCEL_UR : 
 app.use(helmet());
 app.use(
   cors({
-    origin: process.env.APP_URL,
+    origin: APP_URL,
   })
 );
 app.use(morgan('combined'));

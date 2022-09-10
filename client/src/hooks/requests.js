@@ -1,6 +1,7 @@
 const Url = '/v1';
 
 async function httpGetPlanets() {
+  console.log(Url);
   const response =  await fetch(`${Url}/planets`);
 
   if (!response.ok) {
@@ -11,6 +12,7 @@ async function httpGetPlanets() {
 
 async function httpGetLaunches() {
   try {
+    console.log(Url)
     const response = await fetch(`${Url}/launches`);
   
     if (!response.ok) {
