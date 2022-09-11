@@ -1,4 +1,4 @@
-const Url = 'v1';
+const Url = "https://nova-mission-dashboard.vercel.app/v1";
 
 async function httpGetPlanets() {
   try {
