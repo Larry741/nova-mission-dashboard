@@ -27,6 +27,8 @@ const startServer = async () => {
 
 startServer()
 
+module.exports = server;
+
 //google oauth2.0 flow
 
 // const https = require("https");
