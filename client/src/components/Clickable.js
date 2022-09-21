@@ -1,4 +1,3 @@
-import React from "react";
 import { withSounds } from "arwes";
 
 const Clickable = props => {

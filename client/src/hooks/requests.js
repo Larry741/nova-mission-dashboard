@@ -1,66 +1,39 @@
-const Url = "v1";
+const API_URL = 'v1';
 
 async function httpGetPlanets() {
-  try {
-    const response =  await fetch(`${Url}/planets`);
-  
-    if (!response.ok) {
-      throw new Error("couldn't load planets");
-    }
-    return await response.json();
-  } catch (err) {
-    console.log(err);
-    return [];
-  }
+  const response = await fetch(`${API_URL}/planets`);
+  return await response.json();
 }
 
 async function httpGetLaunches() {
-  try {
-    const response = await fetch(`${Url}/launches`);
-  
-    if (!response.ok) {
-      throw new Error("couldn't load launches");
-    }
-    const fetchedResponse = await response.json();
-  
-    return fetchedResponse.sort((a, b) => {
-      return a.flightNumber - b.flightNumber;
-    });
-  } catch (err) {
-    console.log(err);
-    return []
-  }
+  const response = await fetch(`${API_URL}/launches`);
+  const fetchedLaunches = await response.json();
+  return fetchedLaunches;
 }
 
 async function httpSubmitLaunch(launch) {
   try {
-    return await fetch(`${Url}/launches`, {
-      method: 'post',
-      body: JSON.stringify(launch),
-      headers: {
-        'Content-Type': "application/json"
-      }
-    });
-  } catch(error) {
-    return {
-      ok: false
-    }
+    return await fetch(`${API_URL}/launches`, {
+			method: "post",
+			headers: {
+				"Content-Type": "application/json",
+			},
+			body: JSON.stringify(launch),
+		});
+  } catch (err) {
+    return { ok: false };
   }
+  
 }
 
 async function httpAbortLaunch(id) {
   try {
-    const response = await fetch(`${Url}/launches/${id}`, {
-      method: "delete",
-      headers: {
-        "Content-Type": "application/json",
-      },
-    });
-
-    return response;
-  } catch (error) {
+    return await fetch(`${API_URL}/launches/${id}`, {
+      method: "delete"
+    })
+  } catch (err) {
     return {
-      ok: false
+      ok: false,
     }
   }
 }

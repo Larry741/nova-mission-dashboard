@@ -54,6 +54,7 @@ const theme = {
   },
   typography: {
     headerFontFamily: '"Titillium Web", "sans-serif"',
+    fontSize: "18px"
   },
 };
 
