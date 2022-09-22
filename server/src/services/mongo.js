@@ -1,19 +1,21 @@
 const mongoose = require("mongoose");
 
-mongoose.connection.once("open", () => {
-	console.log("MongoDB connection ready!");
+const MONGO_URL = process.env.MONGO_URL;
+
+mongoose.connection.on("open", () => {
+  console.log("mongodb connected");
 });
 
-mongoose.connection.on("error", (err) => {
-	console.error(err);
-});
-
-async function mongoConnect(URL) {
-  await mongoose.connect(URL);
+const connectMongoDb = async () => {
+  try{
+    await mongoose.connect(MONGO_URL);
+  } catch (err) {
+    console.log(err.message)
+  }
 }
 
-async function mongoDisconnect() {
-  await mongoose.disconnect();
-}
+const disconnectMongoDb = async () => {
+  await mongoose.connection.close();
+};
 
-module.exports = {mongoConnect, mongoDisconnect};
+module.exports = { connectMongoDb, disconnectMongoDb };

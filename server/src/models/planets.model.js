@@ -64,4 +64,3 @@ module.exports = {
   loadPlanetsData,
   getAllPlanets
 };
-// parse();

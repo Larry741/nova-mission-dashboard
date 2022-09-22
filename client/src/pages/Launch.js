@@ -4,24 +4,14 @@ import Clickable from "../components/Clickable";
 
 const styles = (theme) => ({
   container: {
-
-
     "@media (max-width: 800px)": {
-      fontSize: "16px"
+      fontSize: "16px",
     },
-  }
-})
+  },
+});
 
 const Launch = (props) => {
-  const {classes} = props;
-  
-  const selectorBody = useMemo(() => {
-    return props.planets?.map((planet) => (
-      <option value={planet.keplerName} key={planet.keplerName}>
-        {planet.keplerName}
-      </option>
-    ));
-  }, [props.planets]);
+  const { classes } = props;
 
   const today = new Date().toISOString().split("T")[0];
 
@@ -76,7 +66,11 @@ const Launch = (props) => {
         />
         <label htmlFor="planets-selector">Destination Exoplanet</label>
         <select id="planets-selector" name="planets-selector">
-          {selectorBody}
+          {props.planets?.map((planet) => {
+            return <option value={planet.kepler_name} key={planet.kepler_name}>
+              {planet.kepler_name}
+            </option>;
+          })}
         </select>
         <Clickable>
           <Button

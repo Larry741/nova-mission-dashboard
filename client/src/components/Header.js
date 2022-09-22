@@ -95,7 +95,7 @@ const Header = props => {
       }} />
       <Logo animate size={50} className={classes.logo} layer="header" />
       <Words animate className={classes.banner}>
-        PEGASUS Control Dock
+        Nova Mission Control
       </Words>
       <nav className={`${classes.nav}`}>
         <Clickable className={classes.clickable} onClick={onNav}>

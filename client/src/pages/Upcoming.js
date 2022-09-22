@@ -29,20 +29,25 @@ const Upcoming = props => {
     return launches?.filter((launch) => launch.upcoming)
       .reverse()
       .map((launch) => {
-        return <tr key={String(launch.flightNumber)}>
-          <td>
-            <Clickable style={{color:"red"}}>
-              <Link className={classes.link} onClick={() => abortLaunch(launch.flightNumber)}>
-                ✖
-              </Link>
-            </Clickable>
-          </td>
-          <td>{launch.flightNumber}</td>
-          <td>{new Date(launch.launchDate).toDateString()}</td>
-          <td>{launch.mission}</td>
-          <td>{launch.rocket}</td>
-          <td>{launch.target}</td>
-        </tr>;
+        return (
+          <tr key={String(launch.flightNumber)}>
+            <td>
+              <Clickable style={{ color: "red" }}>
+                <Link
+                  className={classes.link}
+                  onClick={() => abortLaunch(launch.flightNumber)}
+                >
+                  ✖
+                </Link>
+              </Clickable>
+            </td>
+            <td>{launch.flightNumber}</td>
+            <td>{new Date(launch.launchDate).toDateString()}</td>
+            <td>{launch.mission}</td>
+            <td>{launch.rocketName}</td>
+            <td>{launch.target}</td>
+          </tr>
+        );
       });
   }, [launches, abortLaunch, classes.link]);
 

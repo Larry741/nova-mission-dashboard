@@ -7,19 +7,19 @@ const History = (props) => {
 			?.filter((launch) => !launch.upcoming)
 			.map((launch) => {
 				return (
-					<tr key={String(launch.flightNumber)}>
-						<td>
-							<span style={{ color: launch.success ? "greenyellow" : "red" }}>
-								█
-							</span>
-						</td>
-						<td>{launch.flightNumber}</td>
-						<td>{new Date(launch.launchDate).toDateString()}</td>
-						<td>{launch.mission}</td>
-						<td>{launch.rocket}</td>
-						<td>{launch.customers?.join(", ")}</td>
-					</tr>
-				);
+          <tr key={String(launch.flightNumber)}>
+            <td>
+              <span style={{ color: launch.success ? "greenyellow" : "red" }}>
+                █
+              </span>
+            </td>
+            <td>{launch.flightNumber}</td>
+            <td>{new Date(launch.launchDate).toDateString()}</td>
+            <td>{launch.mission}</td>
+            <td>{launch.rocketName}</td>
+            <td>{launch.customers?.join(", ")}</td>
+          </tr>
+        );
 			});
 	}, [props.launches]);
 
