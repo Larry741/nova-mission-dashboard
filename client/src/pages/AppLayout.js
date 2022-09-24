@@ -22,6 +22,8 @@ import Launch from "./Launch";
 import History from "./History";
 import Upcoming from "./Upcoming";
 
+import clases from "./AppLayout.module.css";
+
 const styles = () => ({
   content: {
     display: "flex",
@@ -68,7 +70,7 @@ const AppLayout = props => {
         corners={4} 
         style={{visibility: frameVisible ? "visible" : "hidden"}}>
         {anim => (
-          <div style={{padding: "20px", overflow: "scroll"}}>
+          <div className={clases.container} style={{ overflow: "scroll"}}>
           <Switch>
             <Route exact path="/">
               <Launch 

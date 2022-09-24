@@ -2,6 +2,8 @@ import { useMemo } from "react";
 import { Appear, Button, Loading, Paragraph, withStyles } from "arwes";
 import Clickable from "../components/Clickable";
 
+import clases from  "./launch.module.css";
+
 const styles = (theme) => ({
   container: {
     "@media (max-width: 800px)": {
@@ -12,6 +14,8 @@ const styles = (theme) => ({
 
 const Launch = (props) => {
   const { classes } = props;
+
+
 
   const today = new Date().toISOString().split("T")[0];
 
@@ -40,38 +44,49 @@ const Launch = (props) => {
 
       <form
         onSubmit={props.submitLaunch}
-        style={{
-          display: "inline-grid",
-          gridTemplateColumns: "auto auto",
-          gridGap: "10px 20px",
-        }}
+        // style={{
+        //   display: "inline-grid",
+        //   gridTemplateColumns: "auto auto",
+        //   gridGap: "10px 20px",
+        // }}
+        className={clases.form}
       >
-        <label htmlFor="launch-day">Launch Date</label>
-        <input
-          type="date"
-          id="launch-day"
-          name="launch-day"
-          min={today}
-          max="2040-12-31"
-          defaultValue={today}
-        />
-        <label htmlFor="mission-name">Mission Name</label>
-        <input type="text" id="mission-name" name="mission-name" />
-        <label htmlFor="rocket-name">Rocket Type</label>
-        <input
-          type="text"
-          id="rocket-name"
-          name="rocket-name"
-          defaultValue="Explorer IS1"
-        />
-        <label htmlFor="planets-selector">Destination Exoplanet</label>
-        <select id="planets-selector" name="planets-selector">
-          {props.planets?.map((planet) => {
-            return <option value={planet.kepler_name} key={planet.kepler_name}>
-              {planet.kepler_name}
-            </option>;
-          })}
-        </select>
+        <div className={clases.control}>
+          <label htmlFor="launch-day">Launch Date</label>
+          <input
+            type="date"
+            id="launch-day"
+            name="launch-day"
+            min={today}
+            max="2040-12-31"
+            defaultValue={today}
+          />
+        </div>
+        <div className={clases.control}>
+          <label htmlFor="mission-name">Mission Name</label>
+          <input type="text" id="mission-name" name="mission-name" />
+        </div>
+        <div className={clases.control}>
+          <label htmlFor="rocket-name">Rocket Type</label>
+          <input
+            type="text"
+            id="rocket-name"
+            name="rocket-name"
+            defaultValue="Explorer IS1"
+          />
+        </div>
+        <div className={clases.control}>
+          <label htmlFor="planets-selector">Destination Exoplanet</label>
+          <select id="planets-selector" name="planets-selector">
+            {props.planets?.map((planet) => {
+              return (
+                <option value={planet.kepler_name} key={planet.kepler_name}>
+                  {planet.kepler_name}
+                </option>
+              );
+            })}
+          </select>
+        </div>
         <Clickable>
           <Button
             animate

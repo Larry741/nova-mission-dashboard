@@ -1,0 +1,76 @@
+.form {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  overflow: hidden;
+
+}
+
+.form > div {
+  margin-bottom: 15px;
+}
+@media (max-width: 432px) {
+  .form>div {
+    margin-bottom: 10px;
+  }
+}
+
+.control {
+  display: grid;
+  grid-template-columns: 170px 177px;
+  grid-template-rows: 1fr;
+  gap: 20px;
+}
+
+@media (max-width: 480px) {
+  .control {
+    grid-template-columns: 150px 177px;
+    gap: 10px;
+  }
+}
+@media (max-width: 432px) {
+  .control {
+    grid-template-columns: 100px 177px;
+    gap: 10px;
+  }
+}
+@media (max-width: 380px) {
+  .control {
+    grid-template-columns: 110px 177px;
+    gap: 0px;
+    justify-content: space-evenly;
+  }
+}
+@media (max-width: 365px) {
+  .control {
+    grid-template-columns: 80px 1fr;
+    gap: 10px;
+    justify-content: space-evenly;
+  }
+}
+@media (max-width: 348px) {
+  .control {
+    grid-template-columns: 80px 150px;
+    gap: 10px;
+    justify-content: space-evenly;
+  }
+}
+@media (max-width: 310px) {
+  .control {
+    gap: 5px;
+  }
+}
+@media (max-width: 310px) {
+  .control {
+    grid-template-columns: 80px 130px;
+  }
+}
+
+.control> label {
+  align-self: center;
+}
+
+.control > input, .control > select {
+  height: 35px;
+  align-self: center;
+}
